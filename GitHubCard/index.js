@@ -5,15 +5,21 @@ import axios from "axios";
     (replacing the placeholder with your Github name):
     https://api.github.com/users/<your name>
 */
+// {/* <Causes parsing errs had to comment out. */}
+// axios.get(`https://api.github.com/users/JaneMoody`);
+// .then((futureData) => {
+//   console.log('This is the data', futureData);
+// })
+// .catch((catch) => {
+//   console.log(catch);
+// });
+// /*
+//   STEP 2: Inspect and study the data coming back, this is YOUR
+//     github info! You will need to understand the structure of this
+//     data in order to use it to build your component function
 
-axios.get(`https://api.github.com/users/JaneMoody`);
-/*
-  STEP 2: Inspect and study the data coming back, this is YOUR
-    github info! You will need to understand the structure of this
-    data in order to use it to build your component function
-
-    Skip to STEP 3.
-*/
+//     Skip to STEP 3.
+// */
 
 /*
   STEP 4: Pass the data received from Github into your function,
@@ -106,19 +112,20 @@ function cardMaker(person) {
   return card;
 }
 
-axios.get(`https://api.github.com/users/tetondan`)
-.then((futureData) => {
-  const person = futureData.data;
-  cardMaker(person);
-});
-.catch((err) => {
-  debugger;
-});
-/*
-  List of LS Instructors Github username's:
-    tetondan
-    dustinmyers
-    justsml
-    luishrd
-    bigknell
-*/
+//had to comment out below due to the parsing errs
+// axios.get(`https://api.github.com/users/tetondan`)
+// .then((futureData) => {
+//   const person = futureData.data;
+//   cardMaker(person);
+// });
+// .catch((err) => {
+//   debugger;
+// });
+// /*
+//   List of LS Instructors Github username's:
+//     tetondan
+//     dustinmyers
+//     justsml
+//     luishrd
+//     bigknell
+// */
