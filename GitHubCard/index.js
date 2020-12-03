@@ -20,6 +20,8 @@ axios.get(`https://api.github.com/users/JaneMoody`);
     and append the returned markup to the DOM as a child of .cards
 */
 
+let dataRev = document.querySelector(".cards");
+
 /*
   STEP 5: Now that you have your own card getting added to the DOM, either
     follow this link in your browser https://api.github.com/users/<Your github name>/followers,
@@ -53,6 +55,65 @@ const followersArray = [];
     </div>
 */
 
+function cardMaker(person) {
+  let card = document.createElement("div");
+  let image = document.createElement("img");
+  let cardInfo = document.createElement("div");
+  let name = document.createElement("h3");
+  let username = document.createElement("p");
+  let location = document.createElement("p");
+  let profile = document.createElement("p");
+  let address = document.createElement("a");
+  let followers = document.createElement("p");
+  let following = document.createElement("p");
+  let bio = document.createElement("p");
+
+  card.classList.add("card");
+  image.classList.add("img");
+  cardInfo.classList.add("cardInfo");
+  name.classList.add("name");
+  username.classList.add("username");
+  location.classList.add("location");
+  profile.classList.add("profile");
+  address.classList.add("address");
+  address.classList.add("address");
+  followers.classList.add("followers");
+  following.classList.add("following");
+  following.classList.add("following");
+  bio.classList.add("bio");
+
+  card.appendChild(image);
+  card.appendChild(cardInfo);
+  cardInfo.appendChild(name);
+  cardInfo.appendChild(username);
+  cardInfo.appendChild(location);
+  cardInfo.appendChild(profile);
+  profile.appendChild(address);
+  cardInfo.appendChild(followers);
+  cardInfo.appendChild(following);
+  cardInfo.appendChild(bio);
+  dataRev.appendChild(card);
+
+  image.src = `${person.image_url}`;
+  name.textContent = `name: ${person.name}`;
+  username.textContent = `username: ${person.login}`;
+  location.textContent = `location: ${person.location}`;
+  profile.textContent = `profile: ${person.url}`;
+  followers.textContent = `followers: ${person.followers}`;
+  following.textContent = `following: ${person.following}`;
+  bio.textContent = `bio: ${person.bio}`;
+
+  return card;
+}
+
+axios.get(`https://api.github.com/users/tetondan`)
+.then((futureData) => {
+  const person = futureData.data;
+  cardMaker(person);
+});
+.catch((err) => {
+  debugger;
+});
 /*
   List of LS Instructors Github username's:
     tetondan
